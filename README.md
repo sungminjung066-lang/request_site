@@ -1,2 +1,3 @@
-# request_site
-drawing request site
+# 용사의 리퀘스트 요청 사이트
+
+- 그림 리퀘스트 요청 사이트 만들기
