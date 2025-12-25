@@ -6,12 +6,20 @@
   font-display: swap;
 }
 
+/* 주의사항 안내*/
 .notice {
   text-align: center;
   font-family: "NeoDonggeunmo";
+  font-size: 25px;
   color: #ffffff;
-  min-height: 50px;
-  min-width: 50px;
-  padding-top: 10px;
+  height: 500px;
+  width: 1000px;
+  margin: auto;
+  padding: 30px;
+  margin-top: 10px;
   background-color: rgb(255, 161, 161);
+}
+
+.notice ul {
+  text-align: left;
 }
