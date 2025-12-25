@@ -7,11 +7,11 @@
 }
 
 .notice {
-  text-align: left;
+  text-align: center;
   font-family: "NeoDonggeunmo";
-  min-height: 200px;
+  color: #ffffff;
+  min-height: 50px;
+  min-width: 50px;
   padding-top: 10px;
-  display: flex;
-  justify-content: center;
   background-color: rgb(255, 161, 161);
 }
