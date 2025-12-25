@@ -1,5 +1,14 @@
+@font-face {
+  font-family: "NeoDonggeunmo";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.3/NeoDunggeunmo.woff")
+    format("woff");
+  font-weight: normal;
+  font-display: swap;
+}
+
 .notice {
   text-align: left;
+  font-family: "NeoDonggeunmo";
   min-height: 200px;
   padding-top: 10px;
   display: flex;
