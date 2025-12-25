@@ -6,6 +6,10 @@
   font-display: swap;
 }
 
+body {
+  background-color: #ffe9e6;
+}
+
 /* 주의사항 안내*/
 .notice {
   text-align: center;
