@@ -24,3 +24,7 @@
 .notice ul {
   text-align: left;
 }
+
+.notice ul li {
+  margin-bottom: 10px;
+}
