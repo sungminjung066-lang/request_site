@@ -3,7 +3,8 @@
 HTML + CSS + JavaScript 기반으로 제작한  
 그림 요청 전송용 웹 페이지입니다.
 
-EmailJS + Vercel Serverless Function 구조로, **클라이언트에 API 키를 노출하지 않는** 메일 전송 시스템을 구현했습니다.
+EmailJS와 Vercel Serverless Function을 이용해,
+API 키를 외부에 노출하지 않고 메일을 보낼 수 있도록 구성했습니다.
 
 핑크 톤 UI와 카드형 레이아웃으로  
 부드럽고 직관적인 요청 폼을 목표로 제작했습니다.
