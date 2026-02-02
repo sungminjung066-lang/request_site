@@ -1,59 +1,49 @@
-/**
- * Vercel Serverless Function
- * - 브라우저에 EmailJS 키를 노출하지 않기 위해, 서버에서만 EmailJS REST API를 호출합니다.
- *
- * Vercel Environment Variables (필수)
- * - EMAILJS_PUBLIC_KEY
- * - EMAILJS_SERVICE_ID
- * - EMAILJS_TEMPLATE_ID
- *
- * (선택)
- * - ALLOWED_ORIGIN: 예) https://your-site.vercel.app
- */
-
-export default async function handler(req, res) {
+module.exports = async (req, res) => {
   if (req.method !== "POST") {
     return res.status(405).json({ error: "METHOD_NOT_ALLOWED" });
   }
 
-  // (선택) 내 사이트에서만 호출되도록 Origin 체크
-  const allowedOrigin = process.env.ALLOWED_ORIGIN;
-  const origin = req.headers.origin || "";
-  if (allowedOrigin && origin !== allowedOrigin) {
-    return res.status(403).json({ error: "FORBIDDEN_ORIGIN" });
-  }
-
   try {
-    const template_params = req.body || {};
+    const { title, message } = req.body || {};
 
-    // 최소 검증 (원하면 더 강화 가능)
-    const title = (template_params.title || "").toString().trim();
-    const message = (template_params.message || "").toString().trim();
-    if (!title || !message) {
-      return res.status(400).json({ error: "MISSING_FIELDS" });
+    const safeTitle = (title || "").toString().trim();
+    const safeMessage = (message || "").toString().trim();
+
+    if (!safeTitle || !safeMessage) {
+      return res.status(400).json({
+        error: "MISSING_FIELDS",
+        title: !!safeTitle,
+        message: !!safeMessage,
+      });
     }
-    if (title.length > 80) {
-      return res.status(400).json({ error: "TITLE_TOO_LONG" });
-    }
-    if (message.length > 4000) {
-      return res.status(400).json({ error: "MESSAGE_TOO_LONG" });
+
+    const service_id = process.env.EMAILJS_SERVICE_ID;
+    const template_id = process.env.EMAILJS_TEMPLATE_ID;
+    const user_id = process.env.EMAILJS_PUBLIC_KEY;
+    const accessToken = process.env.EMAILJS_PRIVATE_KEY;
+
+    if (!service_id || !template_id || !user_id || !accessToken) {
+      return res.status(500).json({
+        error: "MISSING_SERVER_ENV",
+        has: {
+          EMAILJS_SERVICE_ID: !!service_id,
+          EMAILJS_TEMPLATE_ID: !!template_id,
+          EMAILJS_PUBLIC_KEY: !!user_id,
+          EMAILJS_PRIVATE_KEY: !!accessToken,
+        },
+      });
     }
 
     const payload = {
-      service_id: process.env.EMAILJS_SERVICE_ID,
-      template_id: process.env.EMAILJS_TEMPLATE_ID,
-      user_id: process.env.EMAILJS_PUBLIC_KEY,
+      service_id,
+      template_id,
+      user_id,
+      accessToken, // ✅ 이게 없어서 strict mode 에러가 났던 거임
       template_params: {
-        // 템플릿 변수 이름은 EmailJS 템플릿과 일치해야 합니다.
-        // 현재 프론트 폼(name)이 title, message 이므로 그대로 사용
-        title,
-        message,
+        title: safeTitle,
+        message: safeMessage,
       },
     };
-
-    if (!payload.service_id || !payload.template_id || !payload.user_id) {
-      return res.status(500).json({ error: "MISSING_SERVER_ENV" });
-    }
 
     const r = await fetch("https://api.emailjs.com/api/v1.0/email/send", {
       method: "POST",
@@ -61,11 +51,14 @@ export default async function handler(req, res) {
       body: JSON.stringify(payload),
     });
 
+    const text = await r.text();
+
     if (!r.ok) {
-      const text = await r.text();
-      return res
-        .status(502)
-        .json({ error: "EMAILJS_FAILED", detail: text.slice(0, 200) });
+      return res.status(502).json({
+        error: "EMAILJS_FAILED",
+        status: r.status,
+        detail: text.slice(0, 1000),
+      });
     }
 
     return res.status(200).json({ ok: true });
@@ -73,4 +66,4 @@ export default async function handler(req, res) {
     console.error(e);
     return res.status(500).json({ error: "SERVER_ERROR" });
   }
-}
+};
