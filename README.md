@@ -95,6 +95,10 @@ Private Key는 서버에서만 사용되며
 
 모달 기반 피드백
 
+📸 미리보기
+![preview](assets/preview1.png)
+![preview](assets/preview2.png)
+
 📌 앞으로 추가해보고 싶은 기능
 
 스팸 방지 (rate limit / honeypot)
