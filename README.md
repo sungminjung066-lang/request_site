@@ -77,23 +77,24 @@ vercel dev
 http://localhost:3000
 
 🔐 환경 변수
-Vercel Environment Variables 사용:
 
-EMAILJS_SERVICE_ID
-EMAILJS_TEMPLATE_ID
-EMAILJS_PUBLIC_KEY
-EMAILJS_PRIVATE_KEY
-Private Key는 서버에서만 사용되며
-클라이언트에는 노출되지 않습니다.
+- Vercel Environment Variables 사용:
+  EMAILJS_SERVICE_ID
+  EMAILJS_TEMPLATE_ID
+  EMAILJS_PUBLIC_KEY
+  EMAILJS_PRIVATE_KEY
+  Private Key는 서버에서만 사용되며
+  클라이언트에는 노출되지 않습니다.
 
 🎨 UI 컨셉
-카드형 요청 폼
 
-핑크 톤 그라데이션
+- 카드형 요청 폼
 
-큰 버튼 중심 인터페이스
+- 핑크 톤 그라데이션
 
-모달 기반 피드백
+- 큰 버튼 중심 인터페이스
+
+- 모달 기반 피드백
 
 📸 미리보기
 ![preview](assets/preview1.png)
@@ -101,13 +102,13 @@ Private Key는 서버에서만 사용되며
 
 📌 앞으로 추가해보고 싶은 기능
 
-스팸 방지 (rate limit / honeypot)
+- 스팸 방지 (rate limit / honeypot)
 
-첨부파일 업로드
+- 첨부파일 업로드
 
-요청 내역 관리자 페이지
+- 요청 내역 관리자 페이지
 
-애니메이션 효과 강화
+- 애니메이션 효과 강화
 
 🙋‍♀️ 제작자
 GitHub: https://github.com/sungminjung066-lang
