@@ -1,4 +1,4 @@
-# 💌 용사의 그림 요청 사이트 (Request Site)
+# <img src="assets/Rinko.png" width="45" align="center" /> 용사의 그림 요청 사이트 <img src="assets/Mantaro.png" width="42" align="center" />
 
 HTML + CSS + JavaScript 기반으로 제작한  
 그림 요청 전송용 웹 페이지입니다.

@@ -13,8 +13,18 @@
       <!-- 주의사항 박스 -->
       <section class="notice" aria-labelledby="noticeTitle">
         <header class="notice__header">
-          <h1>용사의 리퀘스트 사이트</h1>
-          <p>용사에게 2차 창작 리퀘스트 요청을 보내는 사이트입니다</p>
+          <h1 class="site-title-wrap">
+            <img src="assets/Mantaro.png" class="title-icon" alt="mantro" />
+            <span class="site-title">용사의 리퀘스트 사이트</span>
+            <img src="assets/Rinko.png" class="title-icon" alt="rinko" />
+          </h1>
+
+          <p class="site-desc">
+            용사에게 2차 창작 리퀘스트 요청을 보내는 사이트입니다
+          </p>
+
+          <hr />
+
           <h1 id="noticeTitle">⚠️ 주의사항</h1>
           <p class="notice__lead">아래 항목에 해당하는 요청은 받지 않습니다.</p>
         </header>
@@ -99,7 +109,7 @@
       </section>
     </main>
 
-    <!-- 전송 완료 모달 (기본 숨김) -->
+    <!-- 전송 완료 모달 -->
     <div
       class="modal"
       id="doneModal"
@@ -119,7 +129,6 @@
       </div>
     </div>
 
-    <!-- 키/메일 전송은 /api/send(서버리스)에서 처리합니다. -->
     <script src="script.js"></script>
   </body>
 </html>

@@ -31,6 +31,7 @@
 }
 
 body {
+  line-height: 1.7;
   margin: 0;
   padding: 34px 18px;
   color: var(--text);
@@ -127,12 +128,49 @@ body {
   pointer-events: none;
 }
 
-/* Notice */
+/* =========================
+   Notice
+========================= */
 .notice {
   padding: 20px;
 }
 
-.notice__header h1 {
+/* ✅ 메인 타이틀(용사의 리퀘스트 사이트) */
+.site-title {
+  margin: 0 0 12px;
+  font-size: 28px;
+  letter-spacing: -0.4px;
+  font-weight: 900;
+
+  background: linear-gradient(90deg, #ff6fab, #ff8fbe, #c9b6ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  text-shadow: 0 2px 6px rgba(255, 143, 190, 0.25);
+}
+
+.site-title-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 12px;
+}
+
+.title-icon {
+  width: 28px;
+  height: auto;
+}
+
+/* ✅ 설명 문장(타이틀 아래) */
+.site-desc {
+  margin: 0 0 25px;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+/* ✅ ⚠️ 주의사항 제목만 따로 스타일 */
+#noticeTitle {
   margin: 0 0 10px;
   font-size: 26px;
   letter-spacing: -0.3px;
@@ -169,7 +207,9 @@ body {
   line-height: 1.5;
 }
 
-/* Card/Form */
+/* =========================
+   Card / Form
+========================= */
 .card {
   padding: 22px;
 }
@@ -286,55 +326,9 @@ textarea:focus {
   }
 }
 
-/* ===== 성공 모달 ===== */
-.modal {
-  position: fixed;
-  inset: 0;
-  display: none;
-  z-index: 9999;
-}
-
-.modal.is-open {
-  display: block;
-}
-
-.modal__overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.35);
-}
-
-.modal__panel {
-  position: absolute;
-  left: 50%;
-  top: 74%;
-  transform: translate(-50%, -50%);
-  width: min(92vw, 900px);
-  background: #fff;
-  border-radius: var(--r-xl);
-  padding: 18px 18px 16px;
-  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.25);
-  border: 1.5px solid var(--border);
-}
-
-.modal__title {
-  margin: 0 0 8px;
-  font-size: 18px;
-}
-
-.modal__desc {
-  margin: 0 0 14px;
-  color: var(--muted);
-  line-height: 1.5;
-}
-
-/* 닫기 버튼을 살짝 부드럽게 */
-.btn--ghost {
-  background: linear-gradient(180deg, #ffd6ea, #ffb8d6);
-  color: #fff;
-}
-
-/* ===== 모달 ===== */
+/* =========================
+   Modal
+========================= */
 .modal {
   position: fixed;
   inset: 0;
