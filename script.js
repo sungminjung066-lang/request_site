@@ -1,16 +1,8 @@
-// ✅ EmailJS 설정값
-const EMAILJS_PUBLIC_KEY = "***REMOVED***";
-const EMAILJS_SERVICE_ID = "***REMOVED***";
-const EMAILJS_TEMPLATE_ID = "***REMOVED***";
-
 // 요소
 const form = document.getElementById("msgForm");
 const sendBtn = document.getElementById("sendBtn");
 const modal = document.getElementById("doneModal");
 const closeModalBtn = document.getElementById("closeModalBtn");
-
-// EmailJS 초기화
-emailjs.init(EMAILJS_PUBLIC_KEY);
 
 function openModal() {
   modal.classList.add("is-open");
@@ -34,11 +26,13 @@ window.addEventListener("keydown", (e) => {
 });
 
 // 폼 전송
+// ✅ 키(EmailJS public key/service/template)는 프론트에 두지 않습니다.
+// ✅ /api/send(서버리스 함수)로 보내고, 서버에서 EmailJS REST API를 호출합니다.
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
 
-  const title = document.getElementById("title").value.trim();
-  const message = document.getElementById("message").value.trim();
+  // HTML input/textarea의 name을 그대로 서버에 전달 (현재는 title, message)
+  const payload = Object.fromEntries(new FormData(form).entries());
 
   // 버튼 잠금/로딩
   sendBtn.disabled = true;
@@ -46,12 +40,18 @@ form.addEventListener("submit", async (e) => {
   sendBtn.textContent = "전송 중…";
 
   try {
-    // 템플릿 변수는 EmailJS 템플릿에 맞춰야 함
-    // 너가 만든 템플릿에서 {{title}}, {{message}}를 쓰고 있으니 그대로 보냄
-    await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
-      title,
-      message,
+    const r = await fetch("/api/send", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
     });
+
+    if (!r.ok) {
+      // 디버깅용 (운영에서는 콘솔만 확인하면 됨)
+      const data = await r.json().catch(() => ({}));
+      console.error("Send failed:", r.status, data);
+      throw new Error("SEND_FAILED");
+    }
 
     // 성공: 폼 초기화 + 모달
     form.reset();
