@@ -285,3 +285,92 @@ textarea:focus {
     padding: 18px;
   }
 }
+
+/* ===== 성공 모달 ===== */
+.modal {
+  position: fixed;
+  inset: 0;
+  display: none;
+  z-index: 9999;
+}
+
+.modal.is-open {
+  display: block;
+}
+
+.modal__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+}
+
+.modal__panel {
+  position: absolute;
+  left: 50%;
+  top: 74%;
+  transform: translate(-50%, -50%);
+  width: min(92vw, 900px);
+  background: #fff;
+  border-radius: var(--r-xl);
+  padding: 18px 18px 16px;
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.25);
+  border: 1.5px solid var(--border);
+}
+
+.modal__title {
+  margin: 0 0 8px;
+  font-size: 18px;
+}
+
+.modal__desc {
+  margin: 0 0 14px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+/* 닫기 버튼을 살짝 부드럽게 */
+.btn--ghost {
+  background: linear-gradient(180deg, #ffd6ea, #ffb8d6);
+  color: #fff;
+}
+
+/* ===== 모달 ===== */
+.modal {
+  position: fixed;
+  inset: 0;
+  display: none;
+  place-items: center;
+  padding: 18px;
+  background: rgba(0, 0, 0, 0.32);
+  backdrop-filter: blur(6px);
+  z-index: 9999;
+}
+
+.modal.is-open {
+  display: grid;
+}
+
+.modal__card {
+  width: min(520px, 100%);
+  background: rgba(255, 255, 255, 0.92);
+  border: 1.5px solid rgba(255, 143, 190, 0.35);
+  border-radius: 24px;
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.18);
+  padding: 22px 20px;
+  text-align: center;
+}
+
+.modal__title {
+  margin: 0 0 10px;
+  font-size: 22px;
+}
+
+.modal__desc {
+  margin: 0 0 16px;
+  color: rgba(70, 70, 70, 0.9);
+  line-height: 1.6;
+}
+
+.modal__btn {
+  margin-top: 6px;
+}
