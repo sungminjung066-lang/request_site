@@ -1,7 +1,7 @@
 # <img src="assets/Rinko.png" width="45" align="center" /> 용사의 그림 요청 사이트 <img src="assets/Mantaro.png" width="42" align="center" />
 
 HTML + CSS + JavaScript 기반으로 제작한  
-그림 요청 전송용 웹 페이지입니다.
+2차 창작 기반 그림 요청 전송용 웹 페이지입니다.
 
 EmailJS와 Vercel Serverless Function을 이용해,
 API 키를 외부에 노출하지 않고 메일을 보낼 수 있도록 구성했습니다.
