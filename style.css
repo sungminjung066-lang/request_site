@@ -455,6 +455,59 @@ label {
 
 }
 
+@media (max-width: 380px) {
+  .site-title {
+    font-size: 16px; 
+  }
+
+  .card,
+  .notice {
+    padding: 18px 16px;
+  }
+
+  .wrap {
+    padding: 0 14px;
+  }
+
+  p,
+  li {
+    font-size: 10px;
+    line-height: 1.75;
+  }
+
+  .site-desc, .notice__lead, .notice__foot {
+    font-size: 10px;
+  }
+  #noticeTitle {
+    font-size: 15px;
+  }
+
+  input,
+textarea {
+  font-size: 10px;
+}
+
+.check {
+  font-size: 10px;
+}
+.card__title{
+  font-size: 16px;
+}
+
+.card__hint{
+  font-size: 10px;
+}
+
+label {
+  font-size: 13px;
+}
+
+.btn {
+  font-size: 14px;
+}
+
+}
+
 /* =========================
    Modal
 ========================= */
