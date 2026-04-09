@@ -69,7 +69,6 @@ body {
   padding: 0 16px;
 }
 
-/* 공통 유리카드 */
 .notice,
 .card {
   position: relative;
@@ -81,7 +80,6 @@ body {
   overflow: hidden;
 }
 
-/* 몽글 도트/반짝 */
 .notice::before,
 .card::before {
   content: "";
@@ -115,7 +113,6 @@ body {
   pointer-events: none;
 }
 
-/* 솜사탕 띠 */
 .notice::after,
 .card::after {
   content: "";
@@ -136,7 +133,7 @@ body {
   padding: 20px;
 }
 
-/* ✅ 메인 타이틀(용사의 리퀘스트 사이트) */
+/* 메인 타이틀(용사의 리퀘스트 사이트) */
 .site-title {
   word-break: keep-all;
   margin: 0 0 12px;
@@ -163,7 +160,7 @@ body {
   height: auto;
 }
 
-/* ✅ 설명 문장(타이틀 아래) */
+/* 설명 문장(타이틀 아래) */
 .site-desc {
   margin: 0 0 25px;
   color: var(--muted);
@@ -171,7 +168,7 @@ body {
   line-height: 1.7;
 }
 
-/* ✅ ⚠️ 주의사항 제목만 따로 스타일 */
+/* ⚠️ 주의사항 제목만 따로 스타일 */
 #noticeTitle {
   margin: 0 0 10px;
   font-size: 26px;
@@ -244,7 +241,7 @@ textarea {
   padding: 12px 12px;
   border: 1px solid rgba(255, 143, 190, 0.3);
   border-radius: var(--r-lg);
-  font-size: 16px;
+  font-size: 14px;
   background: rgba(255, 255, 255, 0.92);
   outline: none;
   transition:
@@ -275,6 +272,7 @@ textarea:focus {
   align-items: center;
   gap: 10px;
   font-weight: 800;
+  font-size: 14px;
   margin: 10px 0 14px;
   color: #3a3a3a;
 }
@@ -387,6 +385,74 @@ textarea:focus {
     line-height: 1.7;
     font-size: 13px;
   }
+
+  input,
+textarea {
+  font-size: 14px;
+}
+
+.check {
+  font-size: 14px;
+}
+
+.btn {
+  font-size: 16px;
+}
+
+}
+
+
+@media (max-width: 400px) {
+  .site-title {
+    font-size: 18px; 
+  }
+
+  .card,
+  .notice {
+    padding: 18px 16px;
+  }
+
+  .wrap {
+    padding: 0 14px;
+  }
+
+  p,
+  li {
+    font-size: 10px;
+    line-height: 1.75;
+  }
+
+  .site-desc, .notice__lead, .notice__foot {
+    font-size: 10px;
+  }
+  #noticeTitle {
+    font-size: 15px;
+  }
+
+  input,
+textarea {
+  font-size: 10px;
+}
+
+.check {
+  font-size: 10px;
+}
+.card__title{
+  font-size: 16px;
+}
+
+.card__hint{
+  font-size: 10px;
+}
+
+label {
+  font-size: 13px;
+}
+
+.btn {
+  font-size: 14px;
+}
+
 }
 
 /* =========================
