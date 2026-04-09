@@ -66,6 +66,7 @@ body {
   margin: 0 auto;
   display: grid;
   gap: 18px;
+  padding: 0 16px;
 }
 
 /* 공통 유리카드 */
@@ -137,6 +138,7 @@ body {
 
 /* ✅ 메인 타이틀(용사의 리퀘스트 사이트) */
 .site-title {
+  word-break: keep-all;
   margin: 0 0 12px;
   font-size: 28px;
   letter-spacing: -0.4px;
@@ -318,11 +320,72 @@ textarea:focus {
 
 @media (max-width: 760px) {
   body {
-    padding: 24px 14px;
+    padding: 24px 16px;
   }
+
+  .wrap {
+    padding: 0 20px;
+  }
+
+ .site-desc {
+  font-size: 13px;
+ }
+  .site-title-wrap {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .site-title {
+    font-size: 20px;
+  }
+
+  .title-icon {
+    width: 24px;
+    flex-shrink: 0;
+  }
+
+  
   .card,
   .notice {
-    padding: 18px;
+    padding: 22px 20px;
+  }
+
+ 
+  p,
+  li {
+    line-height: 1.8;
+    font-size: 14px;
+  }
+
+  
+  .site-desc {
+    margin-bottom: 28px;
+  }
+
+  #noticeTitle {
+    font-size: 20px;
+    margin-bottom: 12px;
+  }
+
+  .notice__lead {
+    margin-bottom: 16px;
+    font-size: 13px;
+  }
+
+ 
+  .notice__list {
+    padding-left: 20px;
+    margin-bottom: 20px;
+  }
+
+  .notice__list li {
+    margin-bottom: 14px;
+  }
+
+ 
+  .notice__foot {
+    line-height: 1.7;
+    font-size: 13px;
   }
 }
 
